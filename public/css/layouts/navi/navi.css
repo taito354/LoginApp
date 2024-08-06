@@ -1,0 +1,42 @@
+.navibar {
+  background-color: rgb(0, 170, 255);
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navibar .main_logo {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  margin-left: 30px;
+}
+.navibar .navi_list ul {
+  list-style: none;
+  display: flex;
+}
+.navibar .navi_list ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  margin-right: 40px;
+}
+.navibar .navi_list ul li a:hover {
+  color: rgb(196, 196, 196);
+}
+.navibar .navi_list ul li form .logout_btn {
+  all: unset;
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  cursor: pointer;
+  margin-right: 40px;
+}
+.navibar .navi_list ul li form .logout_btn:hover {
+  color: rgb(196, 196, 196);
+}/*# sourceMappingURL=navi.css.map */
