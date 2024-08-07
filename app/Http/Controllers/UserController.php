@@ -40,15 +40,27 @@ class UserController extends Controller
             "password" => "required|max:100",
         ]);
 
-        //受け取ったデータをDBに登録する
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
+        //すでにあるemail情報でないかチェックする
+        $account = DB::table('users')->select('email')
+                                     ->where('email', $request->input('email'))
+                                     ->get();
 
-        //ログイン完了後の画面に移行する
-        return redirect()->route("user.login");
+        //すでに登録してあるemailアドレスが無ければ、受け取ったデータをDBに登録する
+        if(count($account) < 1){
+            $user = new User;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = $request->password;
+            $user->save();
+
+            //ログイン完了後の画面に移行する
+            return redirect("/login");
+        }else{
+            //すでに登録されていたら、エラーで返す
+            return back()->withErrors([
+                        "email_error" => "このメールアドレスはすでに登録されています"
+                    ])->withInput();
+        }
     }
 
     /**
@@ -153,17 +165,23 @@ class UserController extends Controller
                 // 認証失敗したら、戻す（現在のパスワードが間違っている場合など）
                 return back()->withErrors([
                             "password_edit_error" => "入力内容に間違いがないか確認して下さい"
-                        ])->withInput(["new_password", "current_password"]);
+                        ])->withInput();
             }
         }
     }
 
     /**
-     * Remove the specified resource from storage.
+     * ユーザーアカウントを削除する
      */
-    public function destroy(string $id)
+    public function destroy()
     {
-        //
+        //alertを表示して、パスワードの入力を求める
+        $user_id = Auth::user()->id;
+
+        DB::table('users')->where('id', $user_id)
+                          ->delete();
+
+        return redirect("/");
     }
 
 

@@ -74,6 +74,26 @@
         </form>
 
 
+
+    </div>
+
+    <div class="delete_form">
+        <div class="form">
+            {{-- アカウント削除フォーム --}}
+            <h1>アカウントを削除する</h1>
+            <button id="delete_form_open">削除ボタンを表示</button>
+            <form action="{{ route('user.delete') }}" method="post">
+                @csrf
+
+                {{-- 更新エラーメッセージ --}}
+                @error('delete_error')
+                <div class="error_message">{{ $message }}</div>
+                @enderror
+
+
+                <input id="delete_btn" type="submit" value="削除" class="submit_btn">
+            </form>
+        </div>
     </div>
 
 
@@ -81,4 +101,8 @@
 
 @push("styles")
     <link rel="stylesheet" href="{{ asset("css/account_edit/account_edit.css") }}">
+@endpush
+
+@push('scripts')
+    <script src="{{ asset('js/modal.js') }}"></script>
 @endpush

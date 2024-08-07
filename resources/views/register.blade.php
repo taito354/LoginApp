@@ -12,7 +12,7 @@
 
         <label for="name">名前</label>
         <div class="input">
-            <input type="text" id="name" name="name" placeholder="名前を入力してください">
+            <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="名前を入力してください">
         </div>
 
         @error('name')
@@ -21,16 +21,20 @@
 
         <label for="email">メールアドレス</label>
         <div class="input">
-            <input type="email" id="email" name="email" placeholder="メールアドレスを入力してください">
+            <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="メールアドレスを入力してください">
         </div>
 
         @error('email')
         <div class="error_message">メールアドレスを入力して下さい</div>
         @enderror
 
+        @error("email_error")
+            <div class="error_message">{{ $message }}</div>
+        @enderror
+
         <label for="password">パスワード</label>
         <div class="input">
-            <input type="text" id="password" name="password" placeholder="パスワードを8文字以上で入力してください">
+            <input type="text" id="password" name="password" value="{{ old('password') }}" placeholder="パスワードを8文字以上で入力してください">
         </div>
 
         @error('password')
