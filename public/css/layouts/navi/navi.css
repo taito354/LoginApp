@@ -8,12 +8,16 @@
   justify-content: space-between;
   align-items: center;
 }
-.navibar .main_logo {
+.navibar .main_logo a {
   color: white;
   font-size: 20px;
   font-weight: bold;
   padding: 10px;
   margin-left: 30px;
+  text-decoration: none;
+}
+.navibar .main_logo a:hover {
+  color: rgb(196, 196, 196);
 }
 .navibar .navi_list ul {
   list-style: none;

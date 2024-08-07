@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="login_form">
-    <form action="{{ route('dashboard.store') }}" method="post" class="form">
+    <form action="{{ route('user.store') }}" method="post" class="form">
         <h1>HOTARUER</h1>
         @csrf
 

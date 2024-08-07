@@ -9,11 +9,19 @@
     align-items: center;
 
     .main_logo{
-        color:white;
-        font-size: 20px;
-        font-weight: bold;
-        padding:10px;
-        margin-left: 30px;
+
+        a{
+            color:white;
+            font-size: 20px;
+            font-weight: bold;
+            padding:10px;
+            margin-left: 30px;
+            text-decoration: none;
+
+            &:hover{
+                color:rgb(196, 196, 196);
+            }
+        }
     }
 
     .navi_list{
