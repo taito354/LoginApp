@@ -19,6 +19,7 @@ Route::post('/user/login', [Usercontroller::class, "login"])->name("user.login")
 Route::post('/user/update', [Usercontroller::class, "update"])->name("user.update");
 Route::post('/user/update/password', [Usercontroller::class, "update_password"])->name("user.update.password");
 Route::post('/user/logout', [Usercontroller::class, "logout"])->name("user.logout");
+Route::post('/user/delete', [Usercontroller::class, "destroy"])->name("user.delete");
 
 Route::get('/dashboard', function(){
     return view('dashboard');
