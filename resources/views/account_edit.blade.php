@@ -77,7 +77,7 @@
 
     </div>
 
-    <div class="delete_form">
+    <div class="lower_form">
         <div class="form">
             {{-- アカウント削除フォーム --}}
             <h1>アカウントを削除する</h1>
@@ -92,6 +92,30 @@
 
 
                 <input id="delete_btn" type="submit" value="削除" class="submit_btn">
+            </form>
+        </div>
+
+        <div class="form">
+            {{-- ユーザーアイコン変更フォーム --}}
+            <h1>ユーザーアイコン変更</h1>
+            <form action="{{ route('usericon.update') }}" method="post" enctype="multipart/form-data">
+                @csrf
+
+                <label for="icon">アップロードする</label>
+                <div class="input">
+                    <input type="file" id="icon" name="icon" class="icon_select">
+                </div>
+
+                @error('icon')
+                     <div class="error_message">画像をアップロードして下さい</div>
+                @enderror
+
+                <label for="preview">プレビュー</label>
+                <div class="preview">
+                    <img  class="icon_preview" src="{{ asset($account_data->icon_path) }}" alt="">
+                </div>
+
+                <input type="submit" value="更新" class="submit_btn">
             </form>
         </div>
     </div>
