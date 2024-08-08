@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserIconController;
+use App\Http\Controllers\MapController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,3 +31,8 @@ Route::get('/setting/account', [UserController::class, "edit"])->name('setting.a
 
 //ユーザーアイコン関係のルーティング（UserIconControllerを使用）
 Route::post('/usericon/update', [UserIconController::class, "update"])->name('usericon.update');
+
+
+//マップ機能関係のルーティング（MapControllerを使用）
+Route::get('/map', [MapController::class, 'index'])->name('map');
+Route::post('/map/store', [MapController::class, 'store'])->name('map.store');
