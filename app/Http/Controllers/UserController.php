@@ -29,7 +29,7 @@ class UserController extends Controller
     }
 
     /**
-     * 会員登録ページから入力された情報をDBに保存します
+     * 会員登録ページから入力されたユーザー情報をDBに保存します
      */
     public function store(Request $request)
     {
@@ -63,13 +63,10 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+
+
+
+
 
     /**
      * アカウント情報編集画面を表示する
@@ -80,7 +77,7 @@ class UserController extends Controller
         $user_id = Auth::user()->id;
 
         //DBからログイン中のアカウントの情報を取得する
-        $account_data = DB::table('users')->select('id', 'name', 'email')
+        $account_data = DB::table('users')->select('id', 'name', 'email', 'icon_path')
                                     ->where("id", $user_id)
                                     ->get()
                                     ->first();
@@ -117,6 +114,9 @@ class UserController extends Controller
         return redirect()->route('dashboard');
 
     }
+
+
+
 
     /**
      * フォームに更新されたパスワードを更新する
@@ -170,6 +170,11 @@ class UserController extends Controller
         }
     }
 
+
+
+
+
+
     /**
      * ユーザーアカウントを削除する
      */
@@ -183,6 +188,12 @@ class UserController extends Controller
 
         return redirect("/");
     }
+
+
+
+
+
+
 
 
     /**
@@ -205,8 +216,13 @@ class UserController extends Controller
         ])->onlyInput('email');
     }
 
+
+
+
+
+
     /**
-     * ユーザーのログイン認証をします
+     * ユーザーのログアウトをします
      */
     public function logout(Request $request)
     {

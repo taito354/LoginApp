@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserIconController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,3 +28,5 @@ Route::get('/dashboard', function(){
 
 Route::get('/setting/account', [UserController::class, "edit"])->name('setting.account');
 
+//ユーザーアイコン関係のルーティング（UserIconControllerを使用）
+Route::post('/usericon/update', [UserIconController::class, "update"])->name('usericon.update');
