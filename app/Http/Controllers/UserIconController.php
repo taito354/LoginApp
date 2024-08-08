@@ -41,7 +41,7 @@ class UserIconController extends Controller
         $centerY = $height/2;
 
         $image->crop($size, $size, $centerX - $size/2, $centerY - $size/2)
-              ->resize(50,50)
+              ->resize(100,100)
               ->save($where_icon.$imageName);
 
 
