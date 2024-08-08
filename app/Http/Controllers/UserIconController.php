@@ -31,7 +31,7 @@ class UserIconController extends Controller
 
         //画像の中央を50x50で切り取ったアイコンを作成し、保存
         $where_icon = public_path('images/icons/');
-        //丸く切り抜きます
+        //小さく切り抜きます
         $width = $image->width();
         $height = $image->height();
 
