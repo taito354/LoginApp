@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserIconController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -36,3 +37,6 @@ Route::post('/usericon/update', [UserIconController::class, "update"])->name('us
 //マップ機能関係のルーティング（MapControllerを使用）
 Route::get('/map', [MapController::class, 'index'])->name('map');
 Route::post('/map/store', [MapController::class, 'store'])->name('map.store');
+
+//掲示板関係のルーティング
+Route::get('/timeline', [PostController::class, "index"])->name('timeline');
