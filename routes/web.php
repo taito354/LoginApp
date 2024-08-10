@@ -38,5 +38,6 @@ Route::post('/usericon/update', [UserIconController::class, "update"])->name('us
 Route::get('/map', [MapController::class, 'index'])->name('map');
 Route::post('/map/store', [MapController::class, 'store'])->name('map.store');
 
-//掲示板関係のルーティング
+//掲示板関係のルーティング（PostControllerを使用）
 Route::get('/timeline', [PostController::class, "index"])->name('timeline');
+Route::post('/post/store', [PostController::class, "store"])->name('post.store');
