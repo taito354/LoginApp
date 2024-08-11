@@ -59,6 +59,14 @@
             @csrf
                 <div class="post">
                     <label for="post_textarea" class="post_label">新規ポスト</label>
+
+                    @error("post")
+                        {{ $message }}
+                    @enderror
+                    @error("post_image")
+                        {{ $message }}
+                    @enderror
+
                     <textarea name="post" id="post_textarea" class="post_textarea"></textarea>
                     <input type="file" name="post_image">
                     <input type="submit" class="submit_btn" value="投稿">
