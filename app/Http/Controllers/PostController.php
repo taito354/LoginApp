@@ -17,7 +17,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('time_line');
+        //DBから最新のポストを取得する
+        $posts = DB::table('users')->join('posts', "users.id", "=", "posts.user_id")
+                    ->select("users.name", "users.icon_path", "posts.post", "posts.image_path", "posts.created_at")
+                    ->get();
+
+
+        return view('time_line', ['posts' => $posts]);
     }
 
     /**
