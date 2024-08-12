@@ -7,33 +7,35 @@
     <div class="container">
         <div class="content">
 
-            {{-- このポストを繰り返し表示 --}}
-            <div class="post">
+            {{-- ポストを繰り返し表示 --}}
+            @foreach($posts as $post)
+                <div class="post">
 
-                <div class="head">
-                    <div class="posted_at">
-                        2024/08/09 11:01
-                    </div>
-                    <div class="icon">
-                        <a href="#"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></a>
-                    </div>
-                </div>
-
-                <div class="body">
-                    <div class="upper">
-                        <div class="user">
-                            <img src="" alt="">
-                            <div class="user_name">タイト</div>
+                    <div class="head">
+                        <div class="posted_at">
+                            {{ $post->created_at }}
+                        </div>
+                        <div class="icon">
+                            <a href="#"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></a>
                         </div>
                     </div>
-                    <div class="lower">
-                        <div class="text">
-                            こんにちは
+
+                    <div class="body">
+                        <div class="upper">
+                            <div class="user">
+                                <img src="{{ asset($post->icon_path) }}" alt="">
+                                <div class="user_name">{{ $post->name }}</div>
+                            </div>
+                        </div>
+                        <div class="lower">
+                            <div class="text">
+                                {{ $post->post }}
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            </div>
+                </div>
+            @endforeach
 
 
 
