@@ -42,3 +42,4 @@ Route::post('/map/store', [MapController::class, 'store'])->name('map.store');
 Route::get('/timeline', [PostController::class, "index"])->name('timeline');
 Route::post('/post/store', [PostController::class, "store"])->name('post.store');
 Route::get('/post/create', [PostController::class, "create"])->name('post.create');
+Route::get('/post/show/{id}', [PostController::class, "show"])->name('post.show');

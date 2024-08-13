@@ -1,18 +1,29 @@
 .container {
   width: 100%;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+}
+.container .back_btn {
+  margin-top: 0;
+  font-size: 50px;
+  color: black;
+  position: absolute;
+  top: 80px;
+  left: 20px;
+}
+.container .back_btn:hover {
+  opacity: 0.5;
 }
 .container .content {
-  width: 60%;
-  height: 86%;
-  margin-top: 80px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 .container .content .post {
-  width: 100%;
+  width: 80%;
   min-height: 120px;
+  margin-top: 120px;
   margin-bottom: 30px;
 }
 .container .content .post .head {
@@ -29,18 +40,6 @@
   margin-left: 10px;
   margin-top: 3px;
   font-size: 15px;
-}
-.container .content .post .head .icon {
-  font-size: 25px;
-  margin-right: 10px;
-  margin-top: 5px;
-  color: white;
-}
-.container .content .post .head .icon:hover {
-  opacity: 0.8;
-}
-.container .content .post .head .icon a {
-  color: white;
 }
 .container .content .post .body {
   width: 100%;
@@ -80,23 +79,5 @@
 .container .content .post .body .lower .text {
   width: 98%;
   margin: 0 auto;
-  line-height: 20px;
   overflow-wrap: break-word;
-}
-.container .post_write {
-  background-color: rgb(0, 162, 255);
-  border: 1px solid rgb(0, 162, 255);
-  border-radius: 50%;
-  padding: 17px;
-  position: fixed;
-  bottom: 50px;
-  right: 5%;
-  cursor: pointer;
-}
-.container .post_write:hover {
-  opacity: 0.8;
-}
-.container .post_write ion-icon {
-  font-size: 60px;
-  color: white;
-}/*# sourceMappingURL=time_line.css.map */
+}/*# sourceMappingURL=post_detail.css.map */
