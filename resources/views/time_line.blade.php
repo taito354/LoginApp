@@ -16,7 +16,7 @@
                             {{ $post->created_at }}
                         </div>
                         <div class="icon">
-                            <a href="#"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></a>
+                            <a href="{{ route('post.show', ["id" => $post->id]) }}"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></a>
                         </div>
                     </div>
 
@@ -59,4 +59,7 @@
     {{-- ioniconの読み込む用のスクリプト --}}
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    {{-- スクロール位置を保存するスクリプト --}}
+    <script src="{{ asset('js/scroll.js') }}"></script>
 @endpush
