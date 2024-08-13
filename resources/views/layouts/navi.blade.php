@@ -5,7 +5,7 @@
         <div class="navi_list">
             <ul>
                 <li><a href="#">マップ</a></li>
-                <li><a href="#">掲示板</a></li>
+                <li><a href="{{ route('timeline') }}">掲示板</a></li>
                 <li><a href="{{ route('setting.account') }}">アカウント設定</a></li>
                 <li>
                     <form action="{{ route('user.logout' )}}" method="post">
