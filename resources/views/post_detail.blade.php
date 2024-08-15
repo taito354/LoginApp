@@ -29,6 +29,9 @@
                         <div class="text">
                             {{ $post->post }}
                         </div>
+                        @if(isset($post->image_path))
+                            <img src="{{ asset($post->image_path) }}" class="post_image" alt="">
+                        @endif
                     </div>
                 </div>
 

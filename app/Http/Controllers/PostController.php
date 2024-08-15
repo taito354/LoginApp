@@ -52,7 +52,7 @@ class PostController extends Controller
             "post_image.max" => "10M以下の画像を選択してください",
         ]);
 
-        if($request->input('post_image')){
+        if($request->post_image){
             //画像の処理
             $post_image = Image::read($request->file('post_image'));
 

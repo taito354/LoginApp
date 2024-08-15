@@ -82,15 +82,27 @@
                         }
                     }
 
+                    .image_icon{
+                        font-size: 20px;
+                        margin-right:5px;
+                        color:black;
+
+                        &:hover{
+                            opacity:0.5;
+                        }
+                    }
+
                 }
 
                 .lower{
                     width:100%;
                     margin-top:15px;
                     margin-bottom:5px;
+
                     .text{
                         width:98%;
                         margin: 0 auto;
+                        margin-left:5px;
                         line-height: 20px;
                         overflow-wrap: break-word;
 
