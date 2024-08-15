@@ -72,6 +72,14 @@
   font-weight: bold;
   font-size: 20px;
 }
+.container .content .post .body .upper .image_icon {
+  font-size: 20px;
+  margin-right: 5px;
+  color: black;
+}
+.container .content .post .body .upper .image_icon:hover {
+  opacity: 0.5;
+}
 .container .content .post .body .lower {
   width: 100%;
   margin-top: 15px;
@@ -80,6 +88,7 @@
 .container .content .post .body .lower .text {
   width: 98%;
   margin: 0 auto;
+  margin-left: 5px;
   line-height: 20px;
   overflow-wrap: break-word;
 }

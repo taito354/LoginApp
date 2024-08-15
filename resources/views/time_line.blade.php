@@ -26,6 +26,9 @@
                                 <img src="{{ asset($post->icon_path) }}" alt="">
                                 <div class="user_name">{{ $post->name }}</div>
                             </div>
+                            @if($post->image_path)
+                                <a href="{{ route('post.show', ["id" => $post->id]) }}"><ion-icon class="image_icon" name="image-outline"></ion-icon></a>
+                            @endif
                         </div>
                         <div class="lower">
                             <div class="text">
