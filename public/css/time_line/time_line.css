@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,6 +14,9 @@
   width: 100%;
   min-height: 120px;
   margin-bottom: 30px;
+}
+.container .content .post:last-child {
+  margin-bottom: 100px;
 }
 .container .content .post .head {
   width: 100%;

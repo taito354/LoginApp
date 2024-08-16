@@ -1,6 +1,5 @@
 .container {
   width: 100%;
-  height: 100vh;
   position: relative;
 }
 .container .back_btn {
@@ -18,13 +17,13 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .container .content .post {
   width: 80%;
   min-height: 120px;
   margin-top: 120px;
-  margin-bottom: 30px;
 }
 .container .content .post .head {
   width: 100%;
@@ -88,4 +87,111 @@
   max-width: 95%;
   height: auto;
   margin: 15px;
+}
+.container .content .thread {
+  width: 70%;
+  min-height: 120px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.container .content .thread:last-child {
+  margin-bottom: 100px;
+}
+.container .content .thread .head {
+  width: 100%;
+  height: 30px;
+  background-color: rgb(74, 183, 255);
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .content .thread .head .posted_at {
+  color: white;
+  margin-left: 10px;
+  margin-top: 3px;
+  font-size: 15px;
+}
+.container .content .thread .body {
+  width: 100%;
+  min-height: 100px;
+  border: 3px solid rgb(74, 183, 255);
+  border-radius: 0 0 3px 3px;
+  box-sizing: border-box;
+  background-color: rgb(245, 245, 245);
+}
+.container .content .thread .body .upper {
+  margin-top: 5px;
+  margin-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .content .thread .body .upper .user {
+  display: flex;
+  align-items: center;
+}
+.container .content .thread .body .upper .user img {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.container .content .thread .body .upper .user .user_name {
+  font-weight: bold;
+  font-size: 20px;
+}
+.container .content .thread .body .lower {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .content .thread .body .lower .text {
+  width: 98%;
+  margin: 0 auto;
+  overflow-wrap: break-word;
+}
+.container .content .thread .body .lower .post_image {
+  max-width: 95%;
+  height: auto;
+  margin: 15px;
+}
+.container .new_thread_btn {
+  text-decoration: none;
+  background-color: rgb(58, 175, 253);
+  width: 80%;
+  height: 50px;
+  padding: 2.5px 5px 5px 5px;
+  margin: 0 auto;
+  border-radius: 20px;
+  position: fixed;
+  bottom: 2px;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transition: all 0.5s;
+}
+.container .new_thread_btn:hover {
+  opacity: 0.8;
+}
+.container .new_thread_btn ion-icon {
+  font-size: 50px;
+  color: white;
+}
+.container .new_thread_btn .new_comment {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  margin-top: 5px;
 }/*# sourceMappingURL=post_detail.css.map */

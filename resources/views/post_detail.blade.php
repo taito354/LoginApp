@@ -37,7 +37,43 @@
 
             </div>
 
+            {{-- 繰り返し表示 --}}
+            @foreach($threads as $thread)
+                <div class="thread">
+
+                    <div class="head">
+                        <div class="posted_at">
+                            {{ $thread->created_at }}
+                        </div>
+                    </div>
+
+                    <div class="body">
+                        <div class="upper">
+                            <div class="user">
+                                <img src="{{ asset($thread->icon_path) }}" alt="">
+                                <div class="user_name">{{ $thread->name }}</div>
+                            </div>
+                        </div>
+                        <div class="lower">
+                            <div class="text">
+                                {{ $thread->text }}
+                            </div>
+                            @if(isset($thread->image_path))
+                                <img src="{{ asset($thread->image_path) }}" class="post_image" alt="">
+                            @endif
+                        </div>
+                    </div>
+
+                </div>
+            @endforeach
+
         </div>
+
+        <a href="{{ route("thread.create", ["id" => $post->id]) }}" class="new_thread_btn">
+            <ion-icon name="create-outline"></ion-icon>
+            <div class="new_comment">コメントする</div>
+        </a>
+
     </div>
 
 @endsection

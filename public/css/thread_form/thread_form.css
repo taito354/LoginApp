@@ -1,0 +1,84 @@
+.thread_form {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.thread_form .container {
+  width: 80%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+}
+.thread_form .container .head {
+  width: 100%;
+  height: 5%;
+  background-color: rgb(0, 162, 255);
+  border-radius: 5px 5px 0 0;
+  text-align: right;
+}
+.thread_form .container .head .back_btn {
+  all: unset;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+.thread_form .container .head .back_btn:hover {
+  opacity: 0.8;
+}
+.thread_form .container .head .back_btn ion-icon {
+  font-weight: bold;
+  margin-top: 3px;
+  margin-right: 5px;
+}
+.thread_form .container form {
+  width: 100%;
+  height: 95%;
+}
+.thread_form .container form .post {
+  width: 100%;
+  height: 100%;
+  border: 3px solid rgb(0, 162, 255);
+  box-sizing: border-box;
+  background-color: rgb(247, 247, 247);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.thread_form .container form .post .post_label {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.thread_form .container form .post .post_textarea {
+  width: 90%;
+  height: 40%;
+  font-size: 20px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+.thread_form .container form .post .post_textarea:focus {
+  outline: 1px solid rgb(146, 210, 255);
+  box-shadow: 0 0 10px rgb(146, 210, 255);
+}
+.thread_form .container form .post .submit_btn {
+  all: unset;
+  margin-top: 20px;
+  background-color: rgb(0, 162, 255);
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 5px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.thread_form .container form .post .submit_btn:hover {
+  opacity: 0.8;
+}
+.thread_form .container form .post .error_message {
+  color: red;
+  margin: 5px 0 10px 0;
+}/*# sourceMappingURL=thread_form.css.map */
