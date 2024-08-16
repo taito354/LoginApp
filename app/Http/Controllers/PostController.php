@@ -98,14 +98,23 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //DBからポストの詳細情報、スレッドを取得する
+        //DBからポストの詳細情報を取得する
         $post = DB::table('users')->join('posts', "users.id", "=", "posts.user_id")
                     ->select("users.id", "users.name", "users.icon_path", "posts.id", "posts.post", "posts.image_path", "posts.created_at")
                     ->where('posts.id', $id)
                     ->get()
                     ->first();
 
-        return view('post_detail', ['post' => $post]);
+        //そのポストに対するスレッドも取得する
+        $threads = DB::table('users')->join("threads", "users.id", "=", "threads.user_id")
+                    ->select('users.id', "users.name", "users.icon_path", "threads.id", "threads.text", "threads.image_path", "threads.created_at")
+                    ->where("threads.post_id", $id)
+                    ->orderBy('created_at', "ASC")
+                    ->get();
+
+        // dd($threads);
+
+        return view('post_detail', ['post' => $post, "threads" => $threads]);
     }
 
     /**

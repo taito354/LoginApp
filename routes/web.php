@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserIconController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ThreadController;
 
 //使用するミドルウェア
 use App\Http\Middleware\AuthMiddleware;
@@ -44,10 +45,13 @@ Route::get('/map', [MapController::class, 'index'])->name('map');
 Route::post('/map/store', [MapController::class, 'store'])->name('map.store');
 
 
-//掲示板関係のルーティング（PostControllerを使用）
+//掲示板関係のルーティング（PostController,ThreadControllerを使用）
 Route::middleware(AuthMiddleware::class)->group(function(){
     Route::get('/timeline', [PostController::class, "index"])->name('timeline');
     Route::post('/post/store', [PostController::class, "store"])->name('post.store');
     Route::get('/post/create', [PostController::class, "create"])->name('post.create');
     Route::get('/post/show/{id}', [PostController::class, "show"])->name('post.show');
+
+    Route::get('/thread/create/{id}', [ThreadController::class, "create"])->name('thread.create');
+    Route::post('/thread/store/{id}', [ThreadController::class, "store"])->name('thread.store');
 });
