@@ -5,10 +5,26 @@
   justify-content: center;
   align-items: center;
 }
+.container .back_btn {
+  margin-top: 0;
+  font-size: 50px;
+  color: black;
+  position: absolute;
+  top: 80px;
+  left: 20px;
+}
+.container .back_btn:hover {
+  opacity: 0.5;
+}
 .container .content {
   width: 60%;
   height: 86%;
   margin-top: 80px;
+}
+.container .content .search_word {
+  text-align: center;
+  margin: 10px 0 20px 0;
+  font-size: 20px;
 }
 .container .content .post {
   width: 100%;
@@ -95,23 +111,6 @@
   line-height: 20px;
   overflow-wrap: break-word;
 }
-.container .post_write {
-  background-color: rgb(0, 162, 255);
-  border: 1px solid rgb(0, 162, 255);
-  border-radius: 50%;
-  padding: 17px;
-  position: fixed;
-  bottom: 50px;
-  right: 5%;
-  cursor: pointer;
-}
-.container .post_write:hover {
-  opacity: 0.8;
-}
-.container .post_write ion-icon {
-  font-size: 60px;
-  color: white;
-}
 .container .search {
   background-color: rgb(89, 223, 247);
   border: 1px solid rgb(89, 223, 247);
@@ -171,4 +170,4 @@
 .container .search_form .error_message {
   color: red;
   font-size: 15px;
-}/*# sourceMappingURL=time_line.css.map */
+}/*# sourceMappingURL=search.css.map */

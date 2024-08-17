@@ -51,7 +51,9 @@ Route::middleware(AuthMiddleware::class)->group(function(){
     Route::post('/post/store', [PostController::class, "store"])->name('post.store');
     Route::get('/post/create', [PostController::class, "create"])->name('post.create');
     Route::get('/post/show/{id}', [PostController::class, "show"])->name('post.show');
+    Route::post('/post/search', [PostController::class, "search"])->name('post.search');
 
     Route::get('/thread/create/{id}', [ThreadController::class, "create"])->name('thread.create');
     Route::post('/thread/store/{id}', [ThreadController::class, "store"])->name('thread.store');
+
 });

@@ -1,13 +1,20 @@
 @extends("layouts.app")
 
-@section("title", "掲示板")
+@section("title", "検索結果")
 
 @section("content")
 
     <div class="container">
+
+        {{-- タイムラインに戻るボタン --}}
+        <a href="{{ route('timeline') }}" class="back_btn"><ion-icon name="backspace-outline"></ion-icon></a>
+
         <div class="content">
 
-            {{-- ポストを繰り返し表示 --}}
+
+            <div class="search_word">"{{ $search_word }}"の検索結果</div>
+
+            {{-- 検索結果のポストを繰り返し表示 --}}
             @foreach($posts as $post)
                 <div class="post">
 
@@ -44,12 +51,7 @@
 
         </div>
 
-        {{-- 投稿フォーム表示ボタン（画面右下） --}}
-        <div class="post_write" id="post_form_btn">
-            <a href="{{ route('post.create') }}"><ion-icon name="brush-outline"></ion-icon></a>
-        </div>
-
-        {{-- 検索フォーム表示ボタン（画面右下） --}}
+        {{-- 検索フォーム表示ボタン（画面左下） --}}
             <a class="search" id="search_btn" href="#">
                 <ion-icon name="search-outline"></ion-icon>
             </a>
@@ -69,7 +71,7 @@
 @endsection
 
 @push("styles")
-    <link rel="stylesheet" href="{{ asset('css/time_line/time_line.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/search/search.css') }}">
 @endpush
 
 @push("scripts")

@@ -21,7 +21,7 @@ class PostController extends Controller
         $posts = DB::table('users')->join('posts', "users.id", "=", "posts.user_id")
                     ->select("users.name", "users.icon_path", "posts.id", "posts.post", "posts.image_path", "posts.created_at")
                     ->orderBy("created_at", "DESC")
-                    ->limit(10)
+                    ->limit(50)
                     ->get();
 
 
@@ -139,5 +139,40 @@ class PostController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    /**
+     * 検索フォームに入力されたデータに基づいて、ポストを検索
+     */
+    public function search(Request $request)
+    {
+        $request->validate([
+            "search_word" => "required|min:2|max:100",
+        ],
+        [
+            "search_word.required" => "検索ワードを入力して下さい",
+            "search_word.max" => "100文字以内で入力して下さい",
+            "search_word.min" => "2文字以上で入力して下さい",
+        ]);
+
+
+        $posts = DB::table('users')->join('posts', "users.id", "=", "posts.user_id")
+        ->select("users.name", "users.icon_path", "posts.id", "posts.post", "posts.image_path", "posts.created_at")
+        //あいまい検索（投稿内容）
+        ->where("posts.post", "like", "%" . $request->input('search_word'). "%")
+        //あいまい検索（名前）
+        ->orWhere("users.name", "like", "%" . $request->input('search_word'). "%")
+        ->orderBy("created_at", "DESC")
+        ->limit(10)
+        ->get();
+
+        // dd($posts);
+
+        if(isset($posts)){
+            //検索結果があったら、返す
+            return view("search", ["posts" => $posts, "search_word" => $request->input('search_word')]);
+        }else{
+            return view("search", ["search_word" => $request->input('search_word')]);
+        }
     }
 }
